@@ -1,0 +1,59 @@
+
+a:hover
+{
+	text-decoration:none;
+}
+.logo
+{
+	text-align:center;
+}
+.categ
+{
+	
+	background: lightblue;
+}
+.tag
+{
+	font-size: 25px;
+	font-weight:bold;
+}
+.crud_spec
+{
+	display:none;
+}
+.hero_methods
+{
+	font-size:30px;
+	margin-top:65px;
+	color: blue;
+}
+.hero_methods li
+{
+	margin-top:10px;
+	margin-bottom:10px;
+	list-style-type: none;
+}
+.hero_methods li:hover
+{
+	background:red;
+}
+.hero_methods input
+{
+	opacity: 0;
+}
+.form
+{
+	margin-top:65px;
+}
+.res
+{
+	margin-top:65px;
+}
+#hosok, #fajok
+{
+	opacity:0;
+}
+.input
+{
+	display: none;
+}

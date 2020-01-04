@@ -1,0 +1,407 @@
+{
+	"swagger":"2.0",
+	"info":{},
+	"tags":
+	[{
+		"name":"Hero service"
+	},
+	{
+		"name":"Species service"
+	}],
+	"paths":
+	{
+		"/hero/{id}":
+		{
+			"get":
+			{
+				"tags":["Hero service"],
+				"summary":"get one",
+				"description":"",
+				"operationId":"getOne",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"id",
+					"in":"path",
+					"description":"id",
+					"required":true,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				}],
+				"responses":
+					{
+						"default":
+						{
+							"description":"successful operation"
+						}
+					}
+			},
+			"put":
+			{
+				"tags":["Hero service"],
+				"summary":"modify one",
+				"description":"",
+				"operationId":"modifyOne",
+				"produces":["application/json"],
+				"parameters":
+						[{
+							"name":"id",
+							"in":"path",
+							"description":"id",
+							"required":true,
+							"type":"integer",
+							"default":0,
+							"format":"int64"
+						 },
+						{
+							"name":"name",
+							"in":"formData",
+							"description":"Hero's name",
+							"required":false,
+							"type":"string",
+							"default":"name"
+						},
+						{
+							"name":"desc",
+							"in":"formData",
+							"description":"Hero's description",
+							"required":false,
+							"type":"string",
+							"default":"desc"
+						}],
+						"responses":
+						{
+							"default":{"description":"successful operation"}
+						}
+			},
+			"delete":
+			{
+				"tags":["Hero service"],
+				"summary":"get one",
+				"description":"",
+				"operationId":"deleteOne",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"id",
+					"in":"path",
+					"description":"id",
+					"required":true,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				}],
+				"responses":
+				{
+				"default":{"description":"successful operation"}
+				}
+			}
+		},
+		"/hero":
+		{
+			"get":
+			{
+				"tags":["Hero service"],
+				"summary":"get",
+				"description":"",
+				"operationId":"get",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"start",
+					"in":"query",
+					"description":"start position",
+					"required":false,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				 },
+				 {
+					"name":"count",
+					"in":"query",
+					"description":"count",
+					"required":false,
+					"type":"integer",
+					"default":10,
+					"format":"int64"
+				 },
+				 {
+					"name":"orderfield",
+					"in":"query",
+					"description":"order by",
+					"required":false,
+					"type":"string",
+					"default":"name"
+				},
+				{
+					"name":"orderdirection",
+					"in":"query",
+					"description":"order direction",
+					"required":false,
+					"type":"string",
+					"default":"ASC"
+				}],
+				"responses":
+				{
+					"200":
+					{
+						"description":"successful operation",
+						"schema":
+						{
+							"type":"array",
+							"items":
+							{
+								"$ref":"#/definitions/Hero"
+							}
+						}
+					}
+				}
+			},
+			"post":
+			{
+				"tags":["Hero service"],
+				"summary":"add",
+				"description":"",
+				"operationId":"add",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"name",
+					"in":"formData",
+					"description":"Hero's name",
+					"required":false,
+					"type":"string",
+					"default":"name"
+				},
+				{
+					"name":"desc",
+					"in":"formData",
+					"description":"Hero's description",
+					"required":false,
+					"type":"string",
+					"default":"desc"
+				}],
+				"responses":
+				{
+					"default":{"description":"successful operation"}
+				}
+			}
+		},
+		"/species/{id}":
+		{
+			"get":
+			{
+				"tags":["Species service"],
+				"summary":"get one",
+				"description":"",
+				"operationId":"getOne",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"id",
+					"in":"path",
+					"description":"id",
+					"required":true,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+					}],
+				"responses":
+				{
+					"default":{"description":"successful operation"}
+				}
+			},
+			"put":
+			{
+				"tags":["Species service"],
+				"summary":"modify one",
+				"description":"",
+				"operationId":"modifyOne",
+				"produces":["application/json"],
+				"parameters":
+				[{"
+					name":"id",
+					"in":"path",
+					"description":"id",
+					"required":true,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				},
+				{
+					"name":"name",
+					"in":"formData",
+					"description":"Name",
+					"required":false,
+					"type":"string",
+					"default":"name"
+				},
+				{
+					"name":"desc",
+					"in":"formData",
+					"description":"Description",
+					"required":false,
+					"type":"string",
+					"default":"desc"
+				}],
+				"responses":
+				{
+					"default":{"description":"successful operation"}
+				}
+			},
+			"delete":
+			{
+				"tags":["Species service"],
+				"summary":"get one",
+				"description":"",
+				"operationId":"deleteOne",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"id",
+					"in":"path",
+					"description":"id",
+					"required":true,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				}],
+				"responses":
+				{
+					"default":{"description":"successful operation"}
+				}
+			}
+		},
+		"/species":
+		{
+			"get":
+			{
+				"tags":["Species service"],
+				"summary":"get",
+				"description":"",
+				"operationId":"get",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"start",
+					"in":"query",
+					"description":"start position",
+					"required":false,
+					"type":"integer",
+					"default":0,
+					"format":"int64"
+				},
+				{
+					"name":"count",
+					"in":"query",
+					"description":"count",
+					"required":false,
+					"type":"integer",
+					"default":10,
+					"format":"int64"
+				},
+				{
+					"name":"orderfield",
+					"in":"query",
+					"description":"order by",
+					"required":false,
+					"type":"string",
+					"default":"name"
+				},
+				{
+					"name":"orderdirection",
+					"in":"query",
+					"description":"order direction",
+					"required":false,
+					"type":"string",
+					"default":"ASC"
+				}],
+				"responses":
+				{
+					"200":
+					{
+						"description":"successful operation",
+						"schema":
+						{
+							"type":"array",
+							"items":{"$ref":"#/definitions/Species"}
+						}
+					}
+				}
+			},
+			"post":
+			{
+				"tags":["Species service"],
+				"summary":"add",
+				"description":"",
+				"operationId":"add",
+				"produces":["application/json"],
+				"parameters":
+				[{
+					"name":"name",
+					"in":"formData",
+					"description":"Name",
+					"required":false,
+					"type":"string",
+					"default":"name"
+				},
+				{
+					"name":"desc",
+					"in":"formData",
+					"description":"Description",
+					"required":false,
+					"type":"string",
+					"default":"desc"
+				}],
+				"responses":
+				{
+					"default":{"description":"successful operation"}
+				}
+			}
+		}
+	},
+	"definitions":
+	{
+		"Hero":
+		{
+			"type":"object",
+			"properties":
+			{
+				"id":
+				{
+					"type":"integer",
+					"format":"int64"
+				},
+				"name":
+				{
+					"type":"string"
+				},
+				"description":
+				{
+					"type":"string"
+				}
+			}
+		},
+		"Species":
+		{
+			"type":"object",
+			"properties":
+			{
+				"id":
+				{
+					"type":"integer",
+					"format":"int64"
+				},
+				"name":
+				{
+					"type":"string"
+				},
+				"description":
+				{
+					"type":"string"
+				}
+			}
+		}
+	}
+}

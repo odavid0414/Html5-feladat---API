@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heroes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="swagger.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body onload="load()">
+	<div class="container-fluid">
+		<div class="logo">
+			<img src="logo.jpg" width="200">
+		</div>
+		<br>
+		<h4>Aktív Kategória: <span id="categText"></span></h4>
+		<div class="row">
+			<div class="req col-6">
+				<div class="categ">
+						<form class="row" onchange="categoryChange(event)">
+						<input type="radio" id="hosok" value="hero" name="categ" checked><label for="hosok" name="categ_label" class="tag col-5 text-center">Hősök</label>
+						<input type="radio" id="fajok" value="species" name="categ"><label for="fajok" name="categ_label" class="tag col-6 text-center">Fajok</label>
+						</form>
+				</div>
+				<div class="row">
+					<div class="crud_hero col-3">
+						<ul class="hero_methods">
+							<form onchange="methodRead(event)">
+								<li><input type="radio" id="get_one" value="get_one" name="crud"><label for="get_one">GET</label></li>
+								<li><input type="radio" id="put_one" value="put_one" name="crud"><label for="put_one">PUT</label></li>
+								<li><input type="radio" id="delete_one" value="delete_one" name="crud"><label for="delete_one">DELETE</label></li>
+								<li><input type="radio" id="get" name="crud" value="get"><label for="get">GET</li></label>
+								<li><input type="radio" id="post" name="crud" value="post"><label for="post">POST</li></label>
+							</form>
+						</ul>
+					</div>
+					<div class="crud_spec">
+					</div>
+					<div class="form col-9">
+						<p><input type="number" class="input" placeholder="Azonosító:" data-toggle="tooltip" data-placement="right" title="ID" min=0 name="data" id="p_id" required></p>
+						<p><input type="text" class="input" placeholder="Név:" data-toggle="tooltip" data-placement="right" title="Név" name="data" id="p_name"></p>
+						<p><input type="text" class="input" placeholder="Leírás" data-toggle="tooltip" data-placement="right" title="Leírás" name="data" id="p_desc"></p>
+						<p><input type="number" class="input" title="Darabszám" data-toggle="tooltip" data-placement="right" min=1 name="data" value="10" id="p_count"></p>
+						<p>
+							<select name="data" class="input" id="p_order"  data-toggle="tooltip" data-placement="right" title="Rendezési sorrend">
+								<option value="id">ID</option>
+								<option value="name" selected>Név</option>
+								<option value="description">Leírás</option>
+							</select>
+						</p>
+						<p>
+							<select name="data" class="input" id="p_orderdir"  data-toggle="tooltip" data-placement="right" title="Rendezési irány">
+								<option value="ASC" selected>Növekvő</option>
+								<option value="DESC">Csökkenő</option>
+							</select>
+						</p>
+						<p><input type="button" value="Indítás" id="button" onclick="api()" disabled></p>
+					</div>
+				</div>
+			</div>
+			<div class="res_header col-6">
+			<h3>EREDMÉNY</h3>
+				<div class="res" id="result">
+					<p style="color: gray">--JSON EREDMÉNY--</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+var categ;
+var method;
+var label = document.getElementsByName("categ_label");
+var category = document.getElementsByName("categ");
+var data = document.getElementsByName("data");
+var url = "http://81.2.241.234:8080/";
+</script>
+<script src="api.js"></script>
+<script src="frontend.js"></script>
+</html>
